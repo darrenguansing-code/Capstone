@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
+:root {
+  --border: rgba(15, 23, 42, 0.12);
+}
+
 @theme {
   --color-cgaGreen: #0f7a3e;
   --color-cgaLightGreen: #def7e3;
   --color-cgaDark: #0a5c2e;
 }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+#social .button-icon {
+  filter: invert(1) brightness(2);
+}
 
 body {
   margin: flex;
 }
 
 #root {
-  width: 1857px;
-  max-width: 200%;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
   border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

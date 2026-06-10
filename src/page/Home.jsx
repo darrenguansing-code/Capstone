@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CheckCircle, GraduationCap, Users  } from "lucide-react";
 function Home() {
 
   const programData = [
@@ -7,43 +8,42 @@ function Home() {
       description:
         "Our preschool works closely with parents to ensure the maximum benefit from early schooling.",
       image: "src/image/p1.jpg",
-      link: "/Form",
+      age: "Ages 3–5 yrs.old",
     },
     {
       title: "Kindergarten Program",
       description:
         "Provides students with life skills, knowledge, and Christian values.",
       image: "src/image/k1.jpg",
-      link: "/Form",
+      age: "Ages 5–6 yrs.old",
     },
     {
       title: "Summer Class Program",
       description:
         "Serves students in primary and intermediate grade levels on Season of Summer.",
       image: "src/image/sc.jpg",
-      link: "/Form",
+      age: "Ages 3–10 yrs.old",
     },
   ];
 
   return (
     <>
-    <div className="font-poppins text-slate-900">
+    <div className="font-poppins text-slate-900 cursor-default">
       <section id="/"></section>
 
       {/* HERO */}
     <section className="relative overflow-hidden bg-linear-to-r from-black via-black to-black text-white ">
 
   <img
-    src="src/image/background.jpg"
+    src="src/image/uu2.jpg"
     alt=""
     className="absolute inset-0 h-full w-full object-cover object-[center_45%] opacity-45"
   />
 
-  <div className="relative mx-auto w-full px-4 py-40 sm:px-6 lg:px-8">
+  <div className="relative w-full px-4 py-40 sm:px-6 lg:px-8">
 
-    <div className="flex flex-col items-center text-center max-w-4xl mx-auto gap-5">
-
-      <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaLightGreen">
+    <div className="flex flex-col items-start text-left max-w-3xl gap-5 ">
+      <p className="text-sm font-bold uppercase tracking-[0.3em] text-cgaLightGreen">
         Admissions now open
       </p>
 
@@ -56,7 +56,7 @@ function Home() {
         <b> Ephesians 2:8-9 (NIV)</b>
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-4 justify-center">
+      <div className="mt-3 flex flex-wrap gap-4 justify-start ml-20">
         <Link
           to="/Form"
           className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-cgaGreen shadow hover:bg-slate-100"
@@ -72,21 +72,19 @@ function Home() {
         </Link>
       </div>
 
-      <div className="mt-0 inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 text-sm text-white">
+      <div className="mt-4 flex items-center gap-3 max-w-md rounded-3xl border border-white/60 bg-white/10 px-5 py-3 text-sm text-white ml-25">
         <span className="inline-flex h-2.5 w-2.5 rounded-full bg-green-300"></span>
-        <strong>2026–2027 school year</strong>
+        <strong>2026-2027 School Year</strong>
       </div>
-
     </div>
-
   </div>
 </section>
 
       {/* 3 CARDS */}
-      <section className="max-w-[450vh] mx-auto w-full px-4 py-14 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-x-10 gap-y-8 text-left">
 
-    <div className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+    <div className="rounded-3xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl border-2 border-transparent hover:border-green-900">
       <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen mb">
         Who We Are
       </p>
@@ -100,7 +98,7 @@ function Home() {
       </p>
     </div>
 
-    <div className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
+    <div className="rounded-3xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl border-2 border-transparent hover:border-green-900">
       <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
         Our Mission
       </p>
@@ -114,27 +112,30 @@ function Home() {
       </p>
     </div>
 
-    <div className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
-        Why Parents Choose Us
-      </p>
+    <div className="rounded-3xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl border-2 border-transparent hover:border-green-900">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
+            Why Parents Choose Us
+          </p>
 
-      <h3 className="mt-4 min-h-80px text-2xl font-bold text-slate-900 mb-10">
-        A safe, joyful, and structured experience
-      </h3>
+          <h3 className="mt-4 min-h-80px text-2xl font-bold text-slate-900 mb-10">
+            A safe, joyful, and structured experience
+          </h3>
 
-      <p className="mt-4 leading-7 text-slate-600">
-        Parents trust us for our caring teachers, meaningful learning activities, engaging community, and strong support for every child’s emotional and spiritual growth.
-      </p>
-    </div>
-
-  </div>
+          <p className="mt-4 leading-7 text-slate-600">
+            Parents trust us for our caring teachers, meaningful learning activities, engaging community, and strong support for every child's emotional and spiritual growth.
+          </p>
+        </div>
+      </div>
 </section>
 
+        {/* Academic Programs */}
         <section className="py-12 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
-          Academic Programs
+          <GraduationCap size={75} className="inline-block mr-2" />
+          <div className="font-extrabold text-5xl text-green-700 uppercase tracking-[0.20em] mb-20 cursor-default">
+            Academic Programs
+          </div>
         </h2>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -160,12 +161,11 @@ function Home() {
                   {program.description}
                 </p>
 
-                <Link
-                  to={program.link}
-                  className="font-semibold text-red-600 hover:text-red-800 text-md transition-colors duration-300"
-                >
-                  Enroll Now &rarr;
-                </Link>
+                <div className="mt-10">
+                  <p className="font-semibold text-red-600 text-md transition-colors duration-300 text-left ">
+                    {program.age}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -178,13 +178,13 @@ function Home() {
   <div className="mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-left ml-10">
       <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
-        CGA Learning Story
+        GRACE CHRISTIAN ACADEMY
       </p>
       <h2 className="mt-2 text-3xl font-bold text-slate-900">
         Short video stories from campus
       </h2>
-      <p className="mt-3 max-w-2xl text-slate-700">
-        Tap any clip below to play a preview of our learning activities, celebrations, and classroom moments.
+      <p className="mt-3 max-w-3xl text-slate-700">
+        This clip presents the official theme songs of Grace Christian Academy, highlighting our commitment to Christ-centered education and holistic student development
       </p>
     </div>
 
@@ -192,73 +192,154 @@ function Home() {
       <div className="rounded-3xl bg-white p-6 shadow-lg">
         <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-900">
           <video
-            className="w-full h-145 object-cover"
+            className="w-full h-150 object-cover"
             controls
             poster="img/video-poster.jpg"
           >
             <source src="videos/clip1.mp4" type="video/mp4" />
           </video>
         </div>
-
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <h3 className="text-lg font-semibold text-slate-900">
-            Grace Christian Academy Hymn :
-          </h3>
-          <span className="text-sm text-slate-500">
-            Tap a clip below to switch videos.
-          </span>
-        </div>
-
-        <div className="mt-5 flex flex-wrap gap-3">
-          <button className="rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm hover:bg-cgaGreen/10">
-            Morning prayer and circle time
-          </button>
-          <button className="rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm hover:bg-cgaGreen/10">
-            Creative art activity
-          </button>
-          <button className="rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm hover:bg-cgaGreen/10">
-            Outdoor learning adventure
-          </button>
-        </div>
       </div>
-
-      <div className="space-y-6">
-        <div className="rounded-3xl bg-white p-6 shadow-lg text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
-            Quick facts
-          </p>
-          <ul className="mt-4 space-y-3 text-slate-600">
-            <li className="flex gap-3">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-cgaGreen"></span>
-              Play-based learning for preschoolers.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-cgaGreen"></span>
-              Character development through stories and songs.
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-cgaGreen"></span>
-              Small classes with caring teachers.
-            </li>
-          </ul>
-        </div>
-
-        {/* FEATURED STORY */}
-        <div className="rounded-3xl bg-white p-6 shadow-lg text-left">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
-            Featured story
-          </p>
-          <h3 className="mt-4 text-xl font-bold text-slate-900">
-            GCA Learning Story
-          </h3>
-          <p className="mt-4 text-slate-600">
-            See how young learners explore faith-based lessons, social skills, and creative play in a warm classroom community.
+      
+      {/* WHY PARENTS CHOOSE US */}
+      <div className="space-y-6 border border-slate-200 rounded-3xl bg-white p-6 shadow-lg">
+        <div className="text-center text-bold text-green-700">
+          <p className="text-l font-bold uppercase tracking-[0.3em] text-cgaGreen">
+            WHY PARENTS CHOOSE US
           </p>
         </div>
-      </div>
+
+        <div className="space-y-6">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <CheckCircle size={40} className="text-black shrink-0 mt-1" />
+            <div className="text-center flex-1">
+            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+                A safe, joyful, and structured experience
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div className="space-y-6">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <CheckCircle size={40} className="text-black shrink-0 mt-1" />
+            <div className="text-center flex-1">
+            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+                Safe, supportive, and child-centered education
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div className="space-y-6">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <CheckCircle size={40} className="text-black shrink-0 mt-1" />
+            <div className="text-center flex-1">
+            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+                Engaging activities that make learning meaningful and fun
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div className="space-y-6">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <CheckCircle size={40} className="text-black shrink-0 mt-1" />
+            <div className="text-center flex-1">
+            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+                We help every child grow with confidence and values
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div className="space-y-6">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <CheckCircle size={40} className="text-black shrink-0 mt-1" />
+            <div className="text-center flex-1">
+            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+                Focused on both education and character formation
+                </p>
+            </div>
+            </div>
+        </div>
     </div>
-  </div>
+    </div>
+    </div>
 </section>
+
+
+      {/* PARENT INFORMATION */}
+        <section className="overflow-hidden bg-linear-to-b from-slate-50 to-cgaLightGreen/20 py-16">
+      <div className="mx-auto ml-20 mr-20 px-4 sm:px-6 lg:px-8">
+        <div className="mb-5 text-center max-w-3xl mx-auto">
+              <Users size={80} className="inline-block mr-2 mb-10" />
+          <p className="text-4xl font-extrabold uppercase tracking-[0.3em] text-cgaGreen">Parent Information</p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">🧠</div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Cognitive Development</h3>
+                <p className="mt-2 text-slate-600">Learning through play strengthens problem-solving skills, memory, and the ability to think creatively and critically.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">💪</div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Physical Health</h3>
+                <p className="mt-2 text-slate-600">Active play and movement activities build strong muscles, coordination, and establish healthy habits for life.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">❤️</div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Emotional Well-being</h3>
+                <p className="mt-2 text-slate-600">Safe spaces for self-expression and supportive relationships help children develop confidence and emotional resilience.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">🤗</div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Social Skills</h3>
+                <p className="mt-2 text-slate-600">Group activities teach sharing, cooperation, turn-taking, and empathy—essential skills for healthy relationships.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">✨</div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Creativity & Imagination</h3>
+                <p className="mt-2 text-slate-600">Arts, dramatic play, and open-ended exploration encourage self-expression and divergent thinking.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">✝️</div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">Spiritual Growth</h3>
+                <p className="mt-2 text-slate-600">Faith-based activities and Christian values help children develop a strong moral foundation rooted in love and kindness.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* CONTACT */}
       <section id="contact" className="bg-cgaGreen text-white">
