@@ -194,9 +194,9 @@ function Home() {
           <video
             className="w-full h-150 object-cover"
             controls
-            poster="img/video-poster.jpg"
+            poster=""
           >
-            <source src="videos/clip1.mp4" type="video/mp4" />
+            <source src="" type="" />
           </video>
         </div>
       </div>
