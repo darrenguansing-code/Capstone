@@ -7,21 +7,21 @@ function Home() {
       title: "Preschool Program",
       description:
         "Our preschool works closely with parents to ensure the maximum benefit from early schooling.",
-      image: "src/image/pp1.jpg",
+      image: "/pp1.jpg",
       age: "3–5 yrs.old",
     },
     {
       title: "Kindergarten Program",
       description:
         "Provides students with life skills, knowledge, and Christian values.",
-      image: "src/image/kk1.jpg",
+      image: "/kk1.jpg",
       age: "5–6 yrs.old",
     },
     {
       title: "Summer Class Program",
       description:
         "Serves students in primary and intermediate grade levels on Season of Summer.",
-      image: "src/image/sc.jpg",
+      image: "/sc.jpg",
       age: "3–10 yrs.old",
     },
   ];
@@ -35,7 +35,7 @@ function Home() {
     <section className="relative overflow-hidden bg-linear-to-r from-black via-black to-black text-white ">
 
   <img
-    src="src/image/uu2.jpg"
+    src="/uu2.jpg"
     alt=""
     className="absolute h-100% w-full object-cover[100%] opacity-45 blur-xs"
   />

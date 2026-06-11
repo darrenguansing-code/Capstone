@@ -8,7 +8,7 @@ function Header() {
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-0">
             <Link to="/">
-          <img src="src/image/logo.jpg" alt="Grace Christian Academy" className="h-12 w-20 rounded-full object-cover bg-green-100" />
+          <img src="/logo.jpg" alt="Grace Christian Academy" className="h-12 w-20 rounded-full object-cover bg-green-100" />
           </Link>
           <div>
           <p className="text-xs uppercase tracking-[0.20em] text-slate-1000">Grace Christian Academy of Cavite Inc.</p>

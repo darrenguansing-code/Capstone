@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "../image/logo.jpg";
+import Logo from "/logo.jpg";
 import { User, Lock } from "lucide-react";
 
 function Login() {

@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 function Enroll() {
-  const images = [
-  "src/assets/mha.jpg",
-  "src/assets/mha2.jpg",
-  "src/assets/mha3.jpg",
-  "src/assets/mha4.jpg",
-  "src/assets/logo.jpg",
-];
 
 const [currentImage, setCurrentImage] = useState(0);
 
@@ -25,7 +18,7 @@ useEffect(() => {
       <section className="relative overflow-hidden bg-linear-to-r from-black via-black to-black text-white ">
 
   <img
-    src="src/assets/background.jpg"
+    src="/background.jpg"
     alt=""
     className="absolute inset-0 h-full w-full object-cover object-[center_45%] opacity-35 blur-[2px]"
   />

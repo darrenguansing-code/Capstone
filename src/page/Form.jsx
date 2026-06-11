@@ -99,7 +99,7 @@ export default function Form() {
           className="space-y-10 bg-white p-10 rounded-3xl border border-slate-300 shadow-lg relative overflow-hidden"
         >
           <img
-            src="src/assets/logo.jpg"
+            src="/logo.jpg"
             alt="bg"
             className="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none"
           />
