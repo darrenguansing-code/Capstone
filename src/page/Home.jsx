@@ -7,22 +7,22 @@ function Home() {
       title: "Preschool Program",
       description:
         "Our preschool works closely with parents to ensure the maximum benefit from early schooling.",
-      image: "src/image/p1.jpg",
-      age: "Ages 3–5 yrs.old",
+      image: "src/image/pp1.jpg",
+      age: "3–5 yrs.old",
     },
     {
       title: "Kindergarten Program",
       description:
         "Provides students with life skills, knowledge, and Christian values.",
-      image: "src/image/k1.jpg",
-      age: "Ages 5–6 yrs.old",
+      image: "src/image/kk1.jpg",
+      age: "5–6 yrs.old",
     },
     {
       title: "Summer Class Program",
       description:
         "Serves students in primary and intermediate grade levels on Season of Summer.",
       image: "src/image/sc.jpg",
-      age: "Ages 3–10 yrs.old",
+      age: "3–10 yrs.old",
     },
   ];
 
@@ -37,7 +37,7 @@ function Home() {
   <img
     src="src/image/uu2.jpg"
     alt=""
-    className="absolute inset-0 h-full w-full object-cover object-[center_45%] opacity-45"
+    className="absolute h-100% w-full object-cover[100%] opacity-45 blur-xs"
   />
 
   <div className="relative w-full px-4 py-40 sm:px-6 lg:px-8">
@@ -80,7 +80,7 @@ function Home() {
   </div>
 </section>
 
-      {/* 3 CARDS */}
+      {/* 3 CARDS 
       <section className="mx-auto w-full px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-x-10 gap-y-8 text-left">
 
@@ -126,10 +126,10 @@ function Home() {
           </p>
         </div>
       </div>
-</section>
+</section> */}
 
         {/* Academic Programs */}
-        <section className="py-12 px-6 bg-white">
+        <section className="py-12 px-6 bg-linear-to-b from-slate-100 bg-cgaDark/10 mt-10">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
           <GraduationCap size={75} className="inline-block mr-2" />
@@ -142,7 +142,7 @@ function Home() {
           {programData.map((program, index) => (
             <div
               key={index}
-              className="group bg-black/10 rounded-2xl overflow-hidden border-2 border-transparent shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl"
+              className="group bg-black/25 rounded-2xl overflow-hidden border-2 border-transparent shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl"
             >
               <div className="overflow-hidden">
                 <img
@@ -161,8 +161,8 @@ function Home() {
                   {program.description}
                 </p>
 
-                <div className="mt-10">
-                  <p className="font-semibold text-red-600 text-md transition-colors duration-300 text-left ">
+                <div className="flex mt-10 bg-cgaGreen rounded-md w-32 shadow-lg justify-center-safe text-center ">
+                  <p className="font-semibold text-white text-l transition-colors duration-300 text-left ">
                     {program.age}
                   </p>
                 </div>
@@ -174,7 +174,7 @@ function Home() {
     </section>
 
       {/* VIDEO SECTION */}
-      <section id="videos" className="bg-cgaLightGreen/80 py-14">
+      <section id="videos" className=" bg-linear-to-t from-slate-100 bg-cgaLightGreen py-14">
   <div className="mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-left ml-10">
       <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cgaGreen">
@@ -204,16 +204,16 @@ function Home() {
       {/* WHY PARENTS CHOOSE US */}
       <div className="space-y-6 border border-slate-200 rounded-3xl bg-white p-6 shadow-lg">
         <div className="text-center text-bold text-green-700">
-          <p className="text-l font-bold uppercase tracking-[0.3em] text-cgaGreen">
+          <p className="text-1xl font-extrabold uppercase tracking-[0.3em] text-cgaGreen">
             WHY PARENTS CHOOSE US
           </p>
         </div>
 
         <div className="space-y-6">
-            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <CheckCircle size={40} className="text-black shrink-0 mt-1" />
             <div className="text-center flex-1">
-            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+            <p className="text-sm uppercase tracking-[0.3em] font-bold">
                 A safe, joyful, and structured experience
                 </p>
             </div>
@@ -221,10 +221,10 @@ function Home() {
         </div>
 
         <div className="space-y-6">
-            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <CheckCircle size={40} className="text-black shrink-0 mt-1" />
             <div className="text-center flex-1">
-            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+            <p className="text-sm uppercase tracking-[0.3em] font-bold">
                 Safe, supportive, and child-centered education
                 </p>
             </div>
@@ -232,10 +232,10 @@ function Home() {
         </div>
 
         <div className="space-y-6">
-            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <CheckCircle size={40} className="text-black shrink-0 mt-1" />
             <div className="text-center flex-1">
-            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+            <p className="text-sm uppercase tracking-[0.3em] font-bold">
                 Engaging activities that make learning meaningful and fun
                 </p>
             </div>
@@ -243,10 +243,10 @@ function Home() {
         </div>
 
         <div className="space-y-6">
-            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <CheckCircle size={40} className="text-black shrink-0 mt-1" />
             <div className="text-center flex-1">
-            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+            <p className="text-sm uppercase tracking-[0.3em] font-bold">
                 We help every child grow with confidence and values
                 </p>
             </div>
@@ -254,10 +254,10 @@ function Home() {
         </div>
 
         <div className="space-y-6">
-            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg">
+            <div className="flex gap-4 items-start rounded-3xl bg-black/10 p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <CheckCircle size={40} className="text-black shrink-0 mt-1" />
             <div className="text-center flex-1">
-            <p className="text-sm uppercase tracking-[0.3em] text-cgaGreen font-bold">
+            <p className="text-sm uppercase tracking-[0.3em] font-bold">
                 Focused on both education and character formation
                 </p>
             </div>
@@ -270,70 +270,70 @@ function Home() {
 
 
       {/* PARENT INFORMATION */}
-        <section className="overflow-hidden bg-linear-to-b from-slate-50 to-cgaLightGreen/20 py-16">
+        <section className="overflow-hidden bg-amber-200 bg-linear-to-b from-slate-50 to-cgaLightGreen/20 py-16">
       <div className="mx-auto ml-20 mr-20 px-4 sm:px-6 lg:px-8">
         <div className="mb-5 text-center max-w-3xl mx-auto">
               <Users size={80} className="inline-block mr-2 mb-10" />
           <p className="text-4xl font-extrabold uppercase tracking-[0.3em] text-cgaGreen">Parent Information</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+        <div className="grid gap-6 md:grid-cols-3 mt-20">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">🧠</div>
+              <div className="text-2xl">🧠</div>
               <div>
-                <h3 className="font-bold text-slate-900 text-lg">Cognitive Development</h3>
-                <p className="mt-2 text-slate-600">Learning through play strengthens problem-solving skills, memory, and the ability to think creatively and critically.</p>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">Cognitive Development</h3>
+                <p className="mt-2 text-slate-900">Learning through play strengthens problem-solving skills, memory, and the ability to think creatively and critically.</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">💪</div>
+              <div className="text-2xl">💪</div>
               <div>
-                <h3 className="font-bold text-slate-900 text-lg">Physical Health</h3>
-                <p className="mt-2 text-slate-600">Active play and movement activities build strong muscles, coordination, and establish healthy habits for life.</p>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">Physical Health</h3>
+                <p className="mt-2 text-slate-900">Active play and movement activities build strong muscles, coordination, and establish healthy habits for life.</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">❤️</div>
+              <div className="text-2xl">❤️</div>
               <div>
-                <h3 className="font-bold text-slate-900 text-lg">Emotional Well-being</h3>
-                <p className="mt-2 text-slate-600">Safe spaces for self-expression and supportive relationships help children develop confidence and emotional resilience.</p>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">Emotional Well-being</h3>
+                <p className="mt-2 text-slate-900">Safe spaces for self-expression and supportive relationships help children develop confidence and emotional resilience.</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">🤗</div>
+              <div className="text-2xl">🤗</div>
               <div>
-                <h3 className="font-bold text-slate-900 text-lg">Social Skills</h3>
-                <p className="mt-2 text-slate-600">Group activities teach sharing, cooperation, turn-taking, and empathy—essential skills for healthy relationships.</p>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">Social Skills</h3>
+                <p className="mt-2 text-slate-900">Group activities teach sharing, cooperation, turn-taking, and empathy essential skills for healthy relationships.</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">✨</div>
+              <div className="text-2xl">✨</div>
               <div>
-                <h3 className="font-bold text-slate-900 text-lg">Creativity & Imagination</h3>
-                <p className="mt-2 text-slate-600">Arts, dramatic play, and open-ended exploration encourage self-expression and divergent thinking.</p>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">Creativity & Imagination</h3>
+                <p className="mt-2 text-slate-900">Arts, dramatic play, and open-ended exploration encourage self-expression and divergent thinking.</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition duration-300 hover:-translate-y-1 hover:border-green-900 hover:shadow-2xl">
             <div className="flex items-start gap-4">
-              <div className="text-4xl">✝️</div>
+              <div className="text-2xl">✝️</div>
               <div>
-                <h3 className="font-bold text-slate-900 text-lg">Spiritual Growth</h3>
-                <p className="mt-2 text-slate-600">Faith-based activities and Christian values help children develop a strong moral foundation rooted in love and kindness.</p>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">Spiritual Growth</h3>
+                <p className="mt-2 text-slate-900">Faith-based activities and Christian values help children develop a strong moral foundation rooted in love and kindness.</p>
               </div>
             </div>
           </div>

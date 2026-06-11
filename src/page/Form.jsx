@@ -4,8 +4,10 @@ import { useState } from "react";
 export default function Form() {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
+    gradeLevel: "",
     studentLastName: "",
     studentFirstName: "",
     studentMiddleName: "",
@@ -42,6 +44,7 @@ export default function Form() {
     disabilityDetails: "",
     difficulty: "",
     therapy: "",
+    acceptShareData: false,
   });
 
   const stepTitles = [
@@ -65,12 +68,28 @@ export default function Form() {
   const prevStep = () => setStep((current) => Math.max(current - 1, 1));
 
   const handleFinalSubmit = () => {
+    setShowConfirm(false);
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false);
       navigate("/success");
     }, 1500);
   };
+
+  const openConfirm = () => setShowConfirm(true);
+  const closeConfirm = () => setShowConfirm(false);
+
+  const ReviewField = ({ label, value }) => (
+  <div>
+    <label className="block text-xs font-medium text-slate-600 mb-1">
+      {label}
+    </label>
+
+    <div className="min-h-10.5 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm">
+      {value || "N/A"}
+    </div>
+  </div>
+  );
 
   return (
     <div className="bg-slate-100 text-slate-900 min-h-screen">
@@ -128,10 +147,10 @@ export default function Form() {
               <div className="space-y-8 mt-8">
                 <div className="rounded-3xl border border-slate-100 bg-slate-10 p-6 ">
                   <h3 className="text-lg font-semibold">Grade Level</h3>
-                  <p className="text-sm text-slate-500 mt-3">
+                  <p className="text-m font-bold text-slate-500 mt-3">
                     Select a grade level first. The student fields will remain disabled until a choice is made.
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-3">
+                  <div className="mt-4 flex flex-wrap gap-3 font-bold">
                     {['Pre-school', 'Kinder 1', 'Kinder 2'].map((level) => (
                       <label
                         key={level}
@@ -209,6 +228,19 @@ export default function Form() {
                       className="mt-1 border border-green-500 rounded px-3 py-2 disabled:cursor-not-allowed disabled:bg-slate-100"
                     />
                   </div>
+
+                   <div className="flex flex-col text-left">
+                  <label className="text-sm font-medium">
+                    Place of Birth <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    name="placeOfBirth"
+                    value={formData.placeOfBirth}
+                    onChange={handleChange}
+                    required
+                    className="mt-1 border border-green-500 rounded px-3 py-2"
+                  />
+                </div>
 
                   <div className="flex flex-col text-left">
                     <label className="text-sm font-medium">
@@ -330,19 +362,6 @@ export default function Form() {
                   <input
                     name="zipCode"
                     value={formData.zipCode}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 border border-green-500 rounded px-3 py-2"
-                  />
-                </div>
-
-                <div className="flex flex-col text-left">
-                  <label className="text-sm font-medium">
-                    Place of Birth <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="placeOfBirth"
-                    value={formData.placeOfBirth}
                     onChange={handleChange}
                     required
                     className="mt-1 border border-green-500 rounded px-3 py-2"
@@ -565,9 +584,9 @@ export default function Form() {
                         Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
-                        name="fatherEmail"
+                        name="guardianEmail"
                         type="email"
-                        value={formData.fatherEmail}
+                        value={formData.guardianEmail}
                         onChange={handleChange}
                         required
                         className="mt-1 border border-green-500 rounded px-3 py-2"
@@ -577,8 +596,8 @@ export default function Form() {
                     <div className="flex flex-col text-left">
                       <label className="text-sm font-medium">Occupation</label>
                       <input
-                        name="fatherOccupation"
-                        value={formData.fatherOccupation}
+                        name="guardianOccupation"
+                        value={formData.guardianOccupation}
                         onChange={handleChange}
                         className="mt-1 border border-green-500 rounded px-3 py-2"
                       />
@@ -605,6 +624,20 @@ export default function Form() {
                       Note: Please make sure your email address is correct!
                     </label>
                   </div>
+                </div>
+
+                <div className="flex items-center gap-3 mt-6">
+                  <input
+                    id="acceptShareData"
+                    type="checkbox"
+                    name="acceptShareData"
+                    checked={formData.acceptShareData}
+                    onChange={handleChange}
+                    className="h-5 w-5 rounded border-green-500 text-green-600"
+                  />
+                  <label htmlFor="acceptShareData" className="text-sm font-medium">
+                    I accept that this information may be shared for enrollment processing.
+                  </label>
                 </div>
 
                 <div className="flex flex-col gap-10">
@@ -724,16 +757,289 @@ export default function Form() {
             )}
 
             {step === 5 && (
-              <div className="space-y-8 mt-8">
-                <div className="rounded-3xl border border-green-200 bg-green-50 p-8 text-center">
-                  <div className="text-5xl font-bold text-green-600 mb-4">✓</div>
-                  <h3 className="text-2xl font-semibold text-green-900">Ready to Submit</h3>
-                  <p className="text-green-700 mt-3">
-                    You have completed all the required information. Click the Submit button below to finalize your enrollment.
-                  </p>
-                </div>
-              </div>
-            )}
+              <div className="space-y-6 mt-8">
+
+    {/* Header */}
+    <div className="rounded-xl border border-slate-700 bg-white p-6">
+      <h3 className="text-2xl font-bold text-slate-900">
+        Enrollment Review Form
+      </h3>
+
+      <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2">
+        <span className="font-semibold">
+          Grade Level:
+        </span>
+
+        <span className="font-bold text-blue-700">
+          {formData.gradeLevel || "N/A"}
+        </span>
+      </div>
+    </div>
+
+    {/* STUDENT INFORMATION */}
+    <div className="rounded-xl border border-slate-1000 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        Student Information
+      </h4>
+
+      <div className="grid md:grid-cols-3 gap-4">
+
+        <ReviewField
+          label="First Name"
+          value={formData.studentFirstName}
+        />
+
+        <ReviewField
+          label="Last Name"
+          value={formData.studentLastName}
+        />
+
+        <ReviewField
+          label="Middle Name"
+          value={formData.studentMiddleName}
+        />
+
+        <ReviewField
+          label="Date of Birth"
+          value={formData.dateOfBirth}
+        />
+
+        <ReviewField
+          label="Place of Birth"
+          value={formData.placeOfBirth}
+        />
+
+        <ReviewField
+          label="Religion"
+          value={formData.religion}
+        />
+
+        <ReviewField
+          label="Nationality"
+          value={formData.nationality}
+        />
+
+        <ReviewField
+          label="Sex"
+          value={formData.sex}
+        />
+      </div>
+    </div>
+
+    {/* ADDRESS INFORMATION */}
+    <div className="rounded-xl border border-slate-900 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        Address Information
+      </h4>
+
+      <div className="grid md:grid-cols-3 gap-4">
+
+        <ReviewField
+          label="Street"
+          value={formData.streetName}
+        />
+
+        <ReviewField
+          label="Barangay"
+          value={formData.barangay}
+        />
+
+        <ReviewField
+          label="City"
+          value={formData.city}
+        />
+
+        <ReviewField
+          label="Province"
+          value={formData.province}
+        />
+
+        <ReviewField
+          label="Zip Code"
+          value={formData.zipCode}
+        />
+
+      </div>
+    </div>
+
+    {/* MOTHER INFORMATION */}
+    <div className="rounded-xl border border-slate-900 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        Mother's Information
+      </h4>
+
+      <div className="grid md:grid-cols-3 gap-4">
+
+        <ReviewField
+          label="First Name"
+          value={formData.motherFirstName}
+        />
+
+        <ReviewField
+          label="Last Name"
+          value={formData.motherLastName}
+        />
+
+        <ReviewField
+          label="Middle Name"
+          value={formData.motherMiddleName}
+        />
+
+        <ReviewField
+          label="Contact Number"
+          value={formData.motherContact}
+        />
+
+        <ReviewField
+          label="Email Address"
+          value={formData.motherEmail}
+        />
+
+        <ReviewField
+          label="Occupation"
+          value={formData.motherOccupation}
+        />
+
+      </div>
+    </div>
+
+    {/* FATHER INFORMATION */}
+    <div className="rounded-xl border border-slate-900 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        Father's Information
+      </h4>
+
+      <div className="grid md:grid-cols-3 gap-4">
+
+        <ReviewField
+          label="First Name"
+          value={formData.fatherFirstName}
+        />
+
+        <ReviewField
+          label="Last Name"
+          value={formData.fatherLastName}
+        />
+
+        <ReviewField
+          label="Middle Name"
+          value={formData.fatherMiddleName}
+        />
+
+        <ReviewField
+          label="Contact Number"
+          value={formData.fatherContact}
+        />
+
+        <ReviewField
+          label="Email Address"
+          value={formData.fatherEmail}
+        />
+
+        <ReviewField
+          label="Occupation"
+          value={formData.fatherOccupation}
+        />
+        
+
+      </div>
+    </div>
+
+    {/* GUARDIAN INFORMATION */}
+    <div className="rounded-xl border border-slate-900 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        Guardian Information
+      </h4>
+
+      <div className="grid md:grid-cols-3 gap-4">
+
+        <ReviewField
+          label="First Name"
+          value={formData.guardianFirstName}
+        />
+
+        <ReviewField
+          label="Last Name"
+          value={formData.guardianLastName}
+        />
+
+        <ReviewField
+          label="Middle Name"
+          value={formData.guardianMiddleName}
+        />
+
+        <ReviewField
+          label="Contact Number"
+          value={formData.guardianContact}
+        />
+
+        <ReviewField
+          label="Email Address"
+          value={formData.guardianEmail}
+        />
+
+        <ReviewField
+          label="Occupation"
+          value={formData.guardianOccupation}
+        />
+
+      </div>
+    </div>
+
+    {/* EMAIL */}
+    <div className="rounded-xl border border-slate-900 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        Confirmation Email Address
+      </h4>
+
+      <ReviewField
+        label="Email Address"
+        value={formData.emailConfirmation}
+      />
+    </div>
+
+    {/* MORE INFORMATION */}
+    <div className="rounded-xl border border-slate-900 bg-white p-6">
+      <h4 className="font-bold text-lg mb-10">
+        More Information
+      </h4>
+
+      <div className="grid md:grid-cols-2 gap-4">
+
+        <ReviewField
+          label="Disability"
+          value={formData.disability}
+        />
+
+        <ReviewField
+          label="Disability Details"
+          value={formData.disabilityDetails}
+        />
+
+        <ReviewField
+          label="Difficulty"
+          value={formData.difficulty}
+        />
+
+        <ReviewField
+          label="Therapy"
+          value={formData.therapy}
+        />
+
+        <ReviewField
+          label="Share Consent"
+          value={
+            formData.acceptShareData
+              ? "Accepted"
+              : "Not Accepted"
+          }
+        />
+
+      </div>
+    </div>
+
+  </div>
+)}
 
             <div className="flex justify-between gap-4 mt-10">
               <button
@@ -753,9 +1059,13 @@ export default function Form() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  disabled={step === 1 && !formData.gradeLevel}
+                  disabled={
+                    (step === 1 && !formData.gradeLevel) ||
+                    (step === 4 && !formData.acceptShareData)
+                  }
                   className={`px-6 py-3 rounded-2xl font-bold ${
-                    step === 1 && !formData.gradeLevel
+                    (step === 1 && !formData.gradeLevel) ||
+                    (step === 4 && !formData.acceptShareData)
                       ? "bg-slate-200 text-slate-500 cursor-not-allowed"
                       : "bg-green-500 text-white hover:bg-green-900"
                   }`}
@@ -765,7 +1075,7 @@ export default function Form() {
               ) : (
                 <button
                   type="button"
-                  onClick={handleFinalSubmit}
+                  onClick={openConfirm}
                   className="px-6 py-3 rounded-2xl bg-green-500 text-white font-bold hover:bg-green-900"
                 >
                   Submit
@@ -774,10 +1084,35 @@ export default function Form() {
             </div>
           </div>
 
+          {showConfirm && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
+              <div className="bg-white p-6 rounded-xl shadow-lg w-11/12 max-w-md">
+                <h4 className="text-lg font-semibold">Confirm Submission</h4>
+                <p className="text-sm text-slate-600 mt-2">Are you sure you want to submit your application?</p>
+                <div className="flex justify-end gap-3 mt-6">
+                  <button
+                    type="button"
+                    onClick={closeConfirm}
+                    className="px-4 py-2 rounded bg-slate-200"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleFinalSubmit}
+                    className="px-4 py-2 rounded bg-green-500 text-white"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {showPopup && (
             <div className="fixed inset-0 flex items-top justify-top bg-black/40">
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <p className="text-green-600 font-bold">Successfully Submitted!</p>
+                <p className="text-green-600 font-bold">Application has been submitted!</p>
               </div>
             </div>
           )}

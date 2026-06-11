@@ -22,7 +22,7 @@ export default function Success() {
     <div className="mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-0">
-          <img src="src/assets/logo.jpg" alt="Grace Christian Academy" className="h-12 w-20 rounded-full object-cover bg-green-100" />
+          <img src="src/image/logo.jpg" alt="Grace Christian Academy" className="h-12 w-20 rounded-full object-cover bg-green-100" />
           <div>
           <p className="text-xs uppercase tracking-[0.20em] text-slate-500">Grace Christian Academy of Cavite Inc.</p>
           <p className="text-lg text-left font-semibold text-cgaDark">Grace Christian Academy</p>
