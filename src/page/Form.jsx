@@ -81,11 +81,11 @@ export default function Form() {
 
   const ReviewField = ({ label, value }) => (
   <div>
-    <label className="block text-xs font-medium text-slate-600 mb-1">
+    <label className="block text-xs font-medium text-white mb-1">
       {label}
     </label>
 
-    <div className="min-h-10.5 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm">
+    <div className="min-h-10.5 rounded-md border border-slate-300 bg-white px-3 py-2 text-m">
       {value || "N/A"}
     </div>
   </div>
@@ -640,8 +640,8 @@ export default function Form() {
                   </label>
                 </div>
 
-                <div className="flex flex-col gap-10">
-                  <div className="flex flex-col text-left">
+                <div className="flex flex-col gap-10 border-t">
+                  <div className="flex flex-col text-left mt-5">
                     <label className="text-sm font-medium">
                       Does your child have any disability or special learning need?
                     </label>
@@ -757,32 +757,32 @@ export default function Form() {
             )}
 
             {step === 5 && (
-              <div className="space-y-6 mt-8">
+              <div className="space-y-6 mt-8 cursor-default">
 
     {/* Header */}
-    <div className="rounded-xl border border-slate-700 bg-white p-6">
-      <h3 className="text-2xl font-bold text-slate-900">
+    <div className="rounded-xl bg-black/50 p-6 mb-2">
+      <h3 className="text-2xl font-bold text-black">
         Enrollment Review Form
       </h3>
 
-      <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2">
-        <span className="font-semibold">
+      <div className="mt-4 inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 hover:-translate-y-2 duration-500 hover:shadow-2xl">
+        <span className="font-extrabold">
           Grade Level:
         </span>
 
-        <span className="font-bold text-blue-700">
+        <span className="font-extrabold text-red-700">
           {formData.gradeLevel || "N/A"}
         </span>
       </div>
     </div>
 
     {/* STUDENT INFORMATION */}
-    <div className="rounded-xl border border-slate-1000 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         Student Information
       </h4>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 text-m">
 
         <ReviewField
           label="First Name"
@@ -827,12 +827,12 @@ export default function Form() {
     </div>
 
     {/* ADDRESS INFORMATION */}
-    <div className="rounded-xl border border-slate-900 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         Address Information
       </h4>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 text-m">
 
         <ReviewField
           label="Street"
@@ -863,12 +863,12 @@ export default function Form() {
     </div>
 
     {/* MOTHER INFORMATION */}
-    <div className="rounded-xl border border-slate-900 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         Mother's Information
       </h4>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 text-m">
 
         <ReviewField
           label="First Name"
@@ -904,12 +904,12 @@ export default function Form() {
     </div>
 
     {/* FATHER INFORMATION */}
-    <div className="rounded-xl border border-slate-900 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         Father's Information
       </h4>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 text-m">
 
         <ReviewField
           label="First Name"
@@ -940,18 +940,16 @@ export default function Form() {
           label="Occupation"
           value={formData.fatherOccupation}
         />
-        
-
       </div>
     </div>
 
     {/* GUARDIAN INFORMATION */}
-    <div className="rounded-xl border border-slate-900 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         Guardian Information
       </h4>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 text-m">
 
         <ReviewField
           label="First Name"
@@ -982,13 +980,12 @@ export default function Form() {
           label="Occupation"
           value={formData.guardianOccupation}
         />
-
       </div>
     </div>
 
     {/* EMAIL */}
-    <div className="rounded-xl border border-slate-900 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         Confirmation Email Address
       </h4>
 
@@ -999,12 +996,12 @@ export default function Form() {
     </div>
 
     {/* MORE INFORMATION */}
-    <div className="rounded-xl border border-slate-900 bg-white p-6">
-      <h4 className="font-bold text-lg mb-10">
+    <div className="rounded-xl bg-black/50 p-6 mb-1">
+      <h4 className="font-extrabold text-lg uppercase text-left text-black mb-10">
         More Information
       </h4>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4 text-m">
 
         <ReviewField
           label="Disability"
@@ -1025,19 +1022,8 @@ export default function Form() {
           label="Therapy"
           value={formData.therapy}
         />
-
-        <ReviewField
-          label="Share Consent"
-          value={
-            formData.acceptShareData
-              ? "Accepted"
-              : "Not Accepted"
-          }
-        />
-
       </div>
     </div>
-
   </div>
 )}
 
@@ -1110,9 +1096,9 @@ export default function Form() {
           )}
 
           {showPopup && (
-            <div className="fixed inset-0 flex items-top justify-top bg-black/40">
+            <div className="fixed inset-0 flex items-center justify-center bg-black/40">
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <p className="text-green-600 font-bold">Application has been submitted!</p>
+                <p className="text-green-600 font-extrabold">Application has been submitted!</p>
               </div>
             </div>
           )}

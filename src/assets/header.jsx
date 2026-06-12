@@ -20,21 +20,6 @@ function Header() {
 
   <nav className="md:flex gap-6 font-semibold text-slate-700 hidden ml-170">
 
-  <Link to="/" className="hover:text-cgaGreen">
-    Home
-  </Link>
-
-  <a href="/#contact" className="hover:text-cgaGreen">
-    Contact
-  </a>
-
-  <Link to="/about" className="hover:text-cgaGreen">
-    About Us
-  </Link>
-
-  <Link to="/tuition-fee" className="hover:text-cgaGreen">  
-    Tuition Fees
-  </Link>
 
 </nav>
 

@@ -14,6 +14,8 @@ import Transportation from './page/Transportation.jsx';
 import Form from './page/Form.jsx';
 import Success from './page/Success.jsx';
 import About from './page/About.jsx';
+import Admission from './page/Admission.jsx';
+
 
 
 
@@ -76,6 +78,7 @@ function App() {
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/form" element={<Form />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/admission" element={<Admission />} />
 
           {/* fallback */}
           <Route path="*" element={<h1>404 Not Found</h1>} />

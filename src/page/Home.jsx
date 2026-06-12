@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle, GraduationCap, Users  } from "lucide-react";
+import { CheckCircle, GraduationCap, Users, BadgeInfoIcon, GoalIcon, Goal, Eye  } from "lucide-react";
 function Home() {
 
   const programData = [
@@ -40,41 +40,64 @@ function Home() {
     className="absolute h-100% w-full object-cover[100%] opacity-45 blur-xs"
   />
 
-  <div className="relative w-full px-4 py-40 sm:px-6 lg:px-8">
-
-    <div className="flex flex-col items-start text-left max-w-3xl gap-5 ">
-      <p className="text-sm font-bold uppercase tracking-[0.3em] text-cgaLightGreen">
-        Admissions now open
-      </p>
+<div className="relative w-full px-4 py-40 sm:px-6 lg:px-15">
+  <div className="flex items-center justify-between">
+    <div className="flex flex-col items-start text-left max-w-1xl gap-4">
+      <div className="flex items-center gap-3 border-l-4 border-green-700 pl-4 mb-15">
+        <p className="text-lg font-extrabold uppercase tracking-[0.25em] text-cgaLightGreen">
+          Admissions now open
+        </p>
+        <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs text-white font-extrabold">
+          <span className="inline-flex h-2.5 w-2.5 rounded-full bg-green-300"></span>
+          <p>S.Y : 2026 - 2027</p>
+        </div>
+      </div>
 
       <h2 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
         Discover a joyful preschool journey with faith, play, and learning.
       </h2>
 
       <p className="mt-4 text-base sm:text-lg leading-8 text-emerald-100">
-        "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—  not by works, so that no one can boast."
+        "For it is by grace you have been saved, through faith—and this is not from yourselves,<br></br> it is the gift of God— not by works, so that no one can boast."
         <b> Ephesians 2:8-9 (NIV)</b>
       </p>
 
-      <div className="mt-3 flex flex-wrap gap-4 justify-start ml-20">
+      <div className="mt-8 flex flex-wrap items-center gap-4">
+
         <Link
           to="/Form"
-          className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-cgaGreen shadow hover:bg-slate-100"
+          className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-extrabold text-cgaGreen hover:bg-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
         >
-          Enroll Now
+          ENROLL NOW →
         </Link>
+
+        <div className="h-10 w-px bg-white/50"></div>
+
+        <Link
+          to="/Admission"
+          className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-extrabold text-cgaGreen hover:bg-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
+        >
+          ADMISSION →
+        </Link>
+
+        <div className="h-10 w-px bg-white/50"></div>
 
         <Link
           to="/#videos"
-          className="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/20"
+          className="inline-flex items-center justify-center rounded-2xl bg-white/10 px-6 py-3 text-sm font-extrabold text-white backdrop-blur-sm hover:bg-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
         >
-          Watch Videos
+          LEARN MORE →
         </Link>
-      </div>
 
-      <div className="mt-4 flex items-center gap-3 max-w-md rounded-3xl border border-white/60 bg-white/10 px-5 py-3 text-sm text-white ml-25">
-        <span className="inline-flex h-2.5 w-2.5 rounded-full bg-green-300"></span>
-        <strong>2026-2027 School Year</strong>
+      </div>
+    </div>
+
+    <div className="hidden lg:block">
+      <img
+        src="/r3.png"
+        alt="Student"
+        className="w-200 h-full object-contain drop-shadow-2xl hover:scale-105 transition duration-700"
+      />
       </div>
     </div>
   </div>
@@ -129,11 +152,11 @@ function Home() {
 </section> */}
 
         {/* Academic Programs */}
-        <section className="py-12 px-6 bg-linear-to-b from-slate-100 bg-cgaDark/10 mt-10">
+        <section id="Academic" className="py-12 px-6 bg-linear-to-b from-slate-100 bg-cgaDark/10 mt-10 cursor-default">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+        <h2 className="text-3xl font-bold text-center text-gray-800">
           <GraduationCap size={75} className="inline-block mr-2" />
-          <div className="font-extrabold text-5xl text-green-700 uppercase tracking-[0.20em] mb-20 cursor-default">
+          <div className="font-extrabold text-5xl text-green-700 uppercase tracking-[0.20em] mb-20">
             Academic Programs
           </div>
         </h2>
@@ -153,16 +176,16 @@ function Home() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-red-600 mb-3">
+                <h3 className="text-xl font-extrabold text-red-600 mb-3">
                   {program.title}
                 </h3>
 
-                <p className="text-gray-600 text-sm mb-4">
+                <p className="text-black font-bold text-sm mb-4">
                   {program.description}
                 </p>
 
                 <div className="flex mt-10 bg-cgaGreen rounded-md w-32 shadow-lg justify-center-safe text-center ">
-                  <p className="font-semibold text-white text-l transition-colors duration-300 text-left ">
+                  <p className="font-bold text-white text-l transition-colors duration-300 text-left ">
                     {program.age}
                   </p>
                 </div>
@@ -172,6 +195,57 @@ function Home() {
         </div>
       </div>
     </section>
+
+    <section className="mx-auto w-full px-4 py-14 sm:px-6 lg:px-8">
+  <BadgeInfoIcon size={75} className="inline-block mr-2" />
+
+  <div className="font-extrabold text-5xl text-green-700 uppercase tracking-[0.20em] mb-12">
+    About Us
+  </div>
+  <div className="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
+    <div className="grid md:grid-cols-2">
+      
+      {/* Vision */}
+      <div className="flex-1 p-10 hover:bg-black/10">
+      <div className="drop-shadow-2xl hover:scale-105 transition duration-600">
+        <p className="text-m font-semibold uppercase tracking-[0.3em] text-cgaGreen">
+          <Eye size={50} className="inline-block mr-2 text-gray-600"/>
+          Our Vision
+        </p>
+
+        <h3 className="mt-4 text-3xl font-bold text-slate-900 mb-6">
+          Raising Godly and Lifelong Learners
+        </h3>
+
+        <p className="leading-8 text-slate-900">
+          To be a Christ-centered preschool that inspires young children to grow in faith, character, knowledge, and confidence.
+           We envision a generation of lifelong learners who love God, respect others, 
+           and are equipped with the skills and values needed to succeed in school and in life.
+        </p>
+      </div>
+    </div>
+
+      {/* Mission */}
+      <div className="flex-1 p-10 border-l border-green-900 hover:bg-black/10 drop-shadow-2xl hover:scale-105 transition duration-600">
+        <p className="text-m font-semibold uppercase tracking-[0.3em] text-cgaGreen">
+          <Goal size={50} className="inline-block mr-2 text-red-600"/>
+          Our Mission
+        </p>
+
+        <h3 className="mt-4 text-3xl font-bold text-slate-900 mb-6">
+          Teach with Love, Faith, and Excellence
+        </h3>
+
+        <p className="leading-8 text-slate-900">
+         To provide a safe, nurturing, and engaging learning environment where every child is encouraged to discover, learn, and grow. 
+         Through quality early childhood education rooted in Christian values, we aim to develop each child's 
+         spiritual, academic, social, emotional, and physical well-being while fostering a lifelong love for learning.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* VIDEO SECTION */}
       <section id="videos" className=" bg-linear-to-t from-slate-100 bg-cgaLightGreen py-14">
@@ -341,7 +415,7 @@ function Home() {
       </div>
     </section>
 
-      {/* CONTACT */}
+      {/* CONTACT 
       <section id="contact" className="bg-cgaGreen text-white">
       <div className="mx-auto px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2 text-left ml-10 mr-10">
@@ -412,7 +486,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
   </div>
   </>
   );
