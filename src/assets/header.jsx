@@ -20,7 +20,7 @@ function Header() {
 
   <nav className="md:flex gap-6 font-semibold text-slate-700 hidden ml-170">
 
-    <div className="h-5 w-px bg-white/50"></div>
+    <div className="h-10 w-px bg-white/50"></div>
 
 
         <Link
