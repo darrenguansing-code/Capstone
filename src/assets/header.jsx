@@ -20,11 +20,27 @@ function Header() {
 
   <nav className="md:flex gap-6 font-semibold text-slate-700 hidden ml-170">
 
+    <div className="h-5 w-px bg-white/50"></div>
+
+
+        <Link
+          to="/"
+          className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-extrabold text-cgaGreen hover:bg-green-300 transition-all duration-300"
+        >
+          HOME
+        </Link>
+
+        <Link
+          to="/Admission"
+          className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-extrabold text-cgaGreen hover:bg-green-300 transition-all duration-300"
+        >
+          ADMISSION
+        </Link>
 
 </nav>
 
 </nav>
-      <div className="flex items-center gap-3 mr-30">
+      <div className="flex items-center gap-3 mr-50">
         <Link to="/login" className="rounded-full bg-cgaGreen px-5 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-600"> Login </Link>
       </div>
     </div>

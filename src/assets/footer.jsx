@@ -35,11 +35,16 @@ export default function Footer() {
 
             <Link to="/#Academic" className="hover:text-cgaGreen">Academic Programs</Link>
 
+            <Link to="/admission" className="hover:text-cgaGreen">Admission</Link>
+
+            <Link to="/" className="hover:text-cgaGreen">Contact us</Link>
+
             <Link to="/tuition-fee" className="hover:text-cgaGreen">Tuition Fee</Link>
 
             <Link to="/transportation" className="hover:text-cgaGreen">Transportation</Link>
 
             <Link to="/login" className="hover:text-cgaGreen">Login</Link>
+            
             
           </div>
         </div>

@@ -62,22 +62,13 @@ function Home() {
         <b> Ephesians 2:8-9 (NIV)</b>
       </p>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4">
+      <div className="mt-8 flex flex-wrap items-center gap-4 ml-20">
 
         <Link
           to="/Form"
           className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-extrabold text-cgaGreen hover:bg-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
         >
           ENROLL NOW →
-        </Link>
-
-        <div className="h-10 w-px bg-white/50"></div>
-
-        <Link
-          to="/Admission"
-          className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-extrabold text-cgaGreen hover:bg-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
-        >
-          ADMISSION →
         </Link>
 
         <div className="h-10 w-px bg-white/50"></div>
