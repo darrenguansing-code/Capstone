@@ -52,7 +52,7 @@ export default function Form() {
     "Address Information",
     "Parent / Guardian Information",
     "Additional Information",
-    "Finish",
+    "Review Form",
   ];
 
   const handleChange = (event) => {
@@ -151,13 +151,13 @@ export default function Form() {
                     Select a grade level first. The student fields will remain disabled until a choice is made.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3 font-bold">
-                    {['Pre-school', 'Kinder 1', 'Kinder 2'].map((level) => (
+                    {['[ Pre-school ]', ' [Kinder 1] ', '[ Kinder 2] '].map((level) => (
                       <label
                         key={level}
-                        className={`cursor-pointer rounded-2xl border px-4 py-3 transition ${
+                        className={`cursor-pointer px-4 py-3 transition ${
                           formData.gradeLevel === level
-                            ? 'border-green-500 bg-green-500 text-white'
-                            : 'border-slate-300 bg-white text-slate-700'
+                            ? 'border-green-500 bg-green-500 text-white rounded-full'
+                            : 'border-slate-300 rounded-full bg-white text-slate-700'
                         }`}
                       >
                         <input
@@ -608,8 +608,8 @@ export default function Form() {
 
             {step === 4 && (
               <div className="space-y-8 mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="flex flex-col text-left md:col-span-2">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="flex flex-wrap gap-1 mt-3">
                     <label className="text-sm font-medium">
                       Email Address <span className="text-red-500">*</span>
                     </label>

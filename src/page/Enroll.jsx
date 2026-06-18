@@ -19,7 +19,7 @@ useEffect(() => {
 
   <img
     src="/background.jpg"
-    alt=""
+    alt="background"
     className="absolute inset-0 h-full w-full object-cover object-[center_45%] opacity-35 blur-[2px]"
   />
 

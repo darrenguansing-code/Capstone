@@ -1,939 +1,408 @@
+import { header } from "framer-motion/client";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, ChevronUp, Wallet, Bus} from "lucide-react";
 
-export default function TuitionFees() {
-  const [openMain, setOpenMain] = useState({
-    preschool: false,
-    kinder1: false,
-    kinder2: false,
-  });
-
-  const [openOption, setOpenOption] = useState(null);
+export default function Tuition() {
+  const [program, setProgram] = useState("nursery");
+  const [gender, setGender] = useState("boys");
+  const [paymentOption, setPaymentOption] = useState("full");
 
   const tuitionData = {
-    preschool: {
-  title: "PRE SCHOOL",
+    nursery: {
+      title: "Nursery",
 
-  selections: {
-    schoolfees: {
-      title: "SCHOOL FEES",
-
-      rows: [
+      fees: [
         {
-          label: "Tuition Fee",
-          value: "12,000",
+          name: "Tuition Fee",
+          amount: 12000,
         },
-
         {
-          label: "Miscellaneous Fee",
-          value: "6,000",
+          name: "Miscellaneous Fee",
+          amount: 6000,
         },
-
         {
-          label: "Books",
-          value: "4,000",
-        },
-
-        {
-          header: "UNIFORM",
-        },
-
-        {
-          label: "Girls",
-          value: "800",
-        },
-
-        {
-          label: "Boys",
-          value: "1,000",
-        },
-
-        {
-          header: "P.E DRIFIT",
-        },
-
-        {
-          label: "Girls",
-          value: "1,500",
-        },
-
-        {
-          label: "Boys",
-          value: "1,200",
+          name: "Books",
+          amount: 4000,
         },
       ],
-    },
 
-        option1: {
-          title: "OPTION 1",
-          subtitle: "CASH FULL PAYMENT",
+      uniform: {
+        boys: 1000,
+        girls: 800,
+      },
 
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "18,000",
-            },
-
-            {
-              label: "Less: Cash Discount",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Net of Discount Tuition/Misc Fee :",
-              value: "17,000",
-              highlight: true,
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee Balance",
-              value: "17,000",
-            },
-
-            {
-              label: "Less: Registration Fee",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-          ],
-        },
-
-        option2: {
-          title: "OPTION 2",
-          subtitle: "PAY LITE MONTHLY INSTALLMENT",
-
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "18,000",
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee",
-              value: "8,000",
-            },
-
-            {
-              label: "Less: Registration Fee",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-
-            {
-              footerTitle:
-                "Monthly Installment every 10th of the Month",
-
-              footer:
-                "1,100/monthly (Jun'26-Mar'27)",
-            },
-          ],
-        },
-
-        option3: {
-          title: "OPTION 3",
-          subtitle: "ALL-IN MONTHLY INSTALLMENT",
-
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "19,000",
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee (Jun-Mar)",
-              value: "1,800",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-
-            {
-              footerTitle:
-                "Monthly Installment every 10th of the Month",
-
-              footer:
-                "1,800/monthly (Jun'26-Mar'27)",
-            },
-          ],
-        },
+      peUniform: {
+        boys: 1200,
+        girls: 1500,
       },
     },
 
-    kinder1: {
-  title: "KINDER 1",
-  selections: {
-    schoolfees: {
-      title: "SCHOOL FEES KINDER 1",
+    k1: {
+      title: "Kindergarten 1",
 
-      rows: [
+      fees: [
         {
-          label: "Tuition Fee",
-          value: "14,000",
+          name: "Tuition Fee",
+          amount: 15000,
         },
-
         {
-          label: "Miscellaneous Fee",
-          value: "4,000",
+          name: "Miscellaneous Fee",
+          amount: 7000,
         },
-
         {
-          label: "Books",
-          value: "4,000",
-        },
-
-        {
-          header: "School Uniform"
-        },
-
-        {
-          label: "Uniform Girls",
-          value: "800",
-        },
-
-        {
-          label: "Uniform Boys",
-          value: "1,000",
-        },
-
-        {
-          header: "P.E uniform",
-        },
-
-        {
-          label: "P.E Uniform Girls",
-          value: "1,500",
-        },
-
-        {
-          label: "P.E Uniform Boys",
-          value: "1,200",
+          name: "Books",
+          amount: 4500,
         },
       ],
-    },
 
-    option1: {
-          title: "OPTION 1",
-          subtitle: "CASH FULL PAYMENT",
+      uniform: {
+        boys: 1000,
+        girls: 800,
+      },
 
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "20,000",
-            },
-
-            {
-              label: "Less: Cash Discount",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Net of Discount Tuition/Misc Fee :",
-              value: "19,000",
-              highlight: true,
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee",
-              value: "19,000",
-            },
-
-            {
-              label: "Less: Registration Fee",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-          ],
-        },
-
-        option2: {
-          title: "OPTION 2",
-          subtitle: "PAY LITE MONTHLY INSTALLMENT",
-
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "20,000",
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee",
-              value: "10,000",
-            },
-
-            {
-              label: "Less: Registration Fee",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-
-            {
-              footerTitle:
-                "Monthly Installment every 10th of the Month",
-
-              footer:
-                "1,100/monthly (Jun'26-Mar'27)",
-            },
-          ],
-        },
-
-        option3: {
-          title: "OPTION 3",
-          subtitle: "ALL-IN MONTHLY INSTALLMENT",
-
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "21,000",
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee (Jun-Mar)",
-              value: "2,000",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-
-            {
-              footerTitle:
-                "Monthly Installment every 10th of the Month",
-
-              footer:
-                "1,800/monthly (Jun'26-Mar'27)",
-            },
-          ],
-        },
+      peUniform: {
+        boys: 1200,
+        girls: 1500,
       },
     },
 
-        kinder2: {
-  title: "KINDER 2",
-  selections: {
-    schoolfees: {
-      title: "SCHOOL FEES KINDER 2",
+    k2: {
+      title: "Kindergarten 2",
 
-      rows: [
+      fees: [
         {
-          label: "Tuition Fee",
-          value: "14,000",
+          name: "Tuition Fee",
+          amount: 17000,
         },
-
         {
-          label: "Miscellaneous Fee",
-          value: "4,000",
+          name: "Miscellaneous Fee",
+          amount: 7000,
         },
-
         {
-          label: "Books",
-          value: "4,000",
-        },
-
-        {
-          header: "School Uniform"
-        },
-
-        {
-          label: "Uniform Girls",
-          value: "800",
-        },
-
-        {
-          label: "Uniform Boys",
-          value: "1,000",
-        },
-
-        {
-          header: "P.E uniform",
-        },
-
-        {
-          label: "P.E Uniform Girls",
-          value: "1,500",
-        },
-
-        {
-          label: "P.E Uniform Boys",
-          value: "1,200",
+          name: "Books",
+          amount: 5000,
         },
       ],
-    },
 
-    option1: {
-          title: "OPTION 1",
-          subtitle: "CASH FULL PAYMENT",
+      uniform: {
+        boys: 1000,
+        girls: 800,
+      },
 
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "20,000",
-            },
-
-            {
-              label: "Less: Cash Discount",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Net of Discount Tuition/Misc Fee :",
-              value: "19,000",
-              highlight: true,
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee",
-              value: "19,000",
-            },
-
-            {
-              label: "Less: Registration Fee",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-          ],
-        },
-
-        option2: {
-          title: "OPTION 2",
-          subtitle: "PAY LITE MONTHLY INSTALLMENT",
-
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "20,000",
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee",
-              value: "10,000",
-            },
-
-            {
-              label: "Less: Registration Fee",
-              value: "(1,000)",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-
-            {
-              footerTitle:
-                "Monthly Installment every 10th of the Month",
-
-              footer:
-                "1,100/monthly (Jun'26-Mar'27)",
-            },
-          ],
-        },
-
-        option3: {
-          title: "OPTION 3",
-          subtitle: "ALL-IN MONTHLY INSTALLMENT",
-
-          rows: [
-            {
-              label: "Tuition/Misc Fee",
-              value: "21,000",
-            },
-
-            {
-              header: "Payable upon enrollment",
-            },
-
-            {
-              label: "Tuition/Misc Fee (Jun-Mar)",
-              value: "2,000",
-            },
-
-            {
-              label: "Books",
-              value: "4,000",
-            },
-
-            {
-              header: "School Uniform"
-            },
-
-            {
-              label: "Uniform Girls",
-              value: "800",
-            },
-
-            {
-              label: "Uniform Boys",
-              value: "1,000",
-            },
-
-            {
-              header: "P.E uniform",
-            },
-
-            {
-              label: "P.E Uniform Girls",
-              value: "1,500",
-            },
-
-            {
-              label: "P.E Uniform Boys",
-              value: "1,200",
-            },
-
-            {
-              footerTitle:
-                "Monthly Installment every 10th of the Month",
-
-              footer:
-                "1,800/monthly (Jun'26-Mar'27)",
-            },
-          ],
-        },
+      peUniform: {
+        boys: 1200,
+        girls: 1500,
       },
     },
-  }
-
-  const toggleMain = (section) => {
-    setOpenMain({
-      ...openMain,
-      [section]: !openMain[section],
-    });
   };
 
+  const selected = tuitionData[program];
+
+  let displayedFees = [...selected.fees];
+
+if (paymentOption === "payLite") {
+  displayedFees = [
+    {
+      name: "Down Payment",
+      amount: total * 0.4,
+    },
+    {
+      name: "Remaining Balance",
+      amount: total * 0.6,
+    },
+  ];
+}
+
+if (paymentOption === "allIn") {
+  displayedFees = [
+    {
+      name: "Tuition/Misc.Fee",
+      amount: 21000,
+    },
+    {
+      type: "header",
+      title: "Payable upon Enrollment:",
+    },
+    {
+      name: "Starter Kit",
+      amount: 1000,
+    },
+  ];
+}
+
+  const total =
+    selected.fees.reduce((sum, fee) => sum + fee.amount, 0) +
+    selected.uniform[gender] +
+    selected.peUniform[gender];
+
+  const discountedTotal = total * 0.95;
+
+  // Payment option logic
+  const ALL_IN_SURCHARGE = 2000; // includes registration / starter kit (adjustable)
+
+  let payable = discountedTotal;
+  let installments = 1;
+  let installmentAmount = null;
+
+  if (paymentOption === "full") {
+    payable = discountedTotal;
+    installments = 1;
+  } else if (paymentOption === "payLite") {
+    payable = total; // no discount for installment plan
+    installments = 3;
+    installmentAmount = payable / installments;
+  } else if (paymentOption === "allIn") {
+    payable = total + ALL_IN_SURCHARGE; // single all-in payment
+    installments = 1;
+  }
+
+  const formatPeso = (n, opts = {}) =>
+    n.toLocaleString(undefined, { minimumFractionDigits: 0, ...opts });
+
   return (
-    <section className="px-6 py-10">
-      <div className="ml-30 mr-30 mx-auto mb-20">
+    <section className="relative min-h-screen overflow-hidden bg-linear-to-br from-emerald-50 via-white to-yellow-50 py-16">
+      <div className="absolute -top-28 -left-10 h-80 w-80 rounded-full bg-emerald-200 blur-3xl opacity-30" />
+      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-amber-200 blur-3xl opacity-30" />
 
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <h2 className="flex items-center gap-2 border-l-4 border-green-700 text-green-700 text-xl font-bold pl-3">
-            <Wallet size={30} className="text-green-700" />
-            TUITION FEES SY 2026–2027
-          </h2>
+      <div className="relative max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-emerald-800">
+              Tuition & Fees
+            </h1>
+            <p className="text-sm text-gray-600">Clear breakdown and easy payment options for parents.</p>
+          </div>
 
-          <Link
-            to="/transportation"
-            className="inline-flex items-center justify-center rounded-full border border-green-700 bg-white/10 px-6 py-3 text-sm font-semibold text-green-700 backdrop-blur-sm hover:bg-white/20 gap-2 transition"
-          >
-            <Bus size={20} className="text-black" />
-            Transportation
-          </Link>
+          <div className="flex gap-3 flex-wrap">
+            {Object.keys(tuitionData).map((key) => (
+              <button
+                key={key}
+                onClick={() => setProgram(key)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 shadow-sm
+                  ${
+                    program === key
+                      ? "bg-white border-2 border-emerald-700 text-emerald-700"
+                      : "bg-emerald-100 text-emerald-800 hover:bg-emerald-200"
+                  }`}
+              >
+                {tuitionData[key].title}
+              </button>
+            ))}
+
+            <div className="flex items-center rounded-full overflow-hidden bg-white border">
+              <button
+                onClick={() => setGender("boys")}
+                className={`px-3 py-2 text-sm transition-colors duration-200 ${gender === "boys" ? "bg-blue-600 text-white" : "text-gray-600"}`}
+              >
+                Boys
+              </button>
+              <button
+                onClick={() => setGender("girls")}
+                className={`px-3 py-2 text-sm transition-colors duration-200 ${gender === "girls" ? "bg-pink-600 text-white" : "text-gray-600"}`}
+              >
+                Girls
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-
-          {Object.entries(tuitionData).map(
-            ([sectionKey, sectionData]) => (
-              <div
-                key={sectionKey}
-                className="border border-gray-300 rounded-md bg-white overflow-hidden shadow-sm h-fit"
-              >
-
-                {/* MAIN HEADER */}
-                <button
-                  onClick={() => toggleMain(sectionKey)}
-                  className="w-full px-5 py-4 flex items-center justify-between text-green-700 text-sm font-medium border-b "
-                >
-                  <span>{sectionData.title}</span>
-
-                  {openMain[sectionKey] ? (
-                    <ChevronUp size={18} />
-                  ) : (
-                    <ChevronDown size={18} />
-                  )}
-                </button>
-
-                {/* CONTENT */}
-                {openMain[sectionKey] && (
-                  <div className="p-4 space-y-4 bg-gray-50">
-
-                    {Object.entries(sectionData.selections).map(
-                      ([optionKey, optionData]) => (
-                        <div
-                          key={optionKey}
-                          className="border border-gray-300 rounded-md bg-white overflow-hidden"
-                        >
-
-                          {/* OPTION BUTTON */}
-                          <button
-                            onClick={() =>
-                              setOpenOption(
-                                openOption ===
-                                  `${sectionKey}-${optionKey}`
-                                  ? null
-                                  : `${sectionKey}-${optionKey}`
-                              )
-                            }
-                            className="w-full px-4 py-4 flex items-center justify-between text-green-700 text-sm font-semibold"
-                          >
-                            <span>
-                              {optionData.title}
-                            </span>
-
-                            {openOption ===
-                            `${sectionKey}-${optionKey}` ? (
-                              <ChevronUp size={18} />
-                            ) : (
-                              <ChevronDown size={18} />
-                            )}
-                          </button>
-
-                          {/* OPTION CONTENT */}
-                          {openOption ===
-                            `${sectionKey}-${optionKey}` && (
-                            <div className="px-5 pb-5 text-sm text-gray-800">
-
-                              {/* TITLE */}
-                              <div className="text-center py-5">
-                                <h2 className="text-2xl font-bold text-green-700">
-                                  {optionData.title}
-                                </h2>
-
-                                <p className="text-lg font-bold text-orange-700">
-                                  {optionData.subtitle}
-                                </p>
-                              </div>
-
-                              {/* ROWS */}
-                              {optionData.rows.map(
-                                (row, index) => (
-
-                                  row.header ? (
-
-                                    <div
-                                      key={index}
-                                      className="text-center font-bold text-green-700 text-lg py-5"
-                                    >
-                                      {row.header}
-                                    </div>
-
-                                  ) : row.footer ? (
-
-                                    <div
-                                      key={index}
-                                      className="text-center py-5"
-                                    >
-                                      <p className="text-m font-semibold text-gray-700">
-                                        {row.footerTitle}
-                                      </p>
-
-                                      <p className="text-md font-bold text-blue-700">
-                                        {row.footer}
-                                      </p>
-                                    </div>
-
-                                  ) : (
-
-                                    <div
-                                      key={index}
-                                      className={`flex justify-between border-t py-3 text-[15px]
-                                      ${
-                                        row.highlight
-                                          ? "text-blue-700 font-bold"
-                                          : ""
-                                      }`}
-                                    >
-                                      <span>
-                                        {row.label}
-                                      </span>
-
-                                      <span>
-                                        {row.value}
-                                      </span>
-                                    </div>
-
-                                  )
-                                )
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      )
-                    )}
-                  </div>
-                )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Fees breakdown */}
+          <div className="md:col-span-2 bg-white rounded-2xl p-6 shadow-lg">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-emerald-800">{selected.title}</h2>
+                <p className="text-sm text-gray-500">Tuition assessment and itemized fees</p>
               </div>
-            )
-          )}
+              <div className="text-right">
+                <p className="text-sm text-gray-500">Selected</p>
+                <p className="text-lg font-semibold text-emerald-700">{selected.title}</p>
+              </div>
+            </div>
+
+           <div className="text-left">
+  {displayedFees.map((fee, index) => (
+    fee.type === "header" ? (
+      <div key={index} className="py-3 font-semibold text-gray-700">
+        {fee.title}
+      </div>
+    ) : (
+      <div key={index} className="py-4 flex items-center justify-between border-b">
+        <div>
+          <p className="font-medium">{fee.name}</p>
+          <p className="text-xs text-gray-500">One-time / per semester</p>
+        </div>
+        <div className="font-semibold text-gray-800">
+          ₱{formatPeso(fee.amount)}
+        </div>
+      </div>
+    )
+  ))}
+
+              {paymentOption !== "payLite" && (
+  <>
+    <div className="py-4 flex items-center justify-between">
+      <div>
+        <p className="font-medium">Uniform ({gender})</p>
+      </div>
+      <div className="font-semibold">
+        ₱{formatPeso(selected.uniform[gender])}
+      </div>
+    </div>
+
+    <div className="py-4 flex items-center justify-between">
+      <div>
+        <p className="font-medium">P.E. Uniform ({gender})</p>
+      </div>
+      <div className="font-semibold">
+        ₱{formatPeso(selected.peUniform[gender])}
+      </div>
+    </div>
+  </>
+)}
+            </div>
+          </div>
+        
+
+          {/* Summary / CTA */}
+          <aside className="bg-linear-to-b from-black/20 to-emerald-50 rounded-2xl p-6 shadow-xl flex flex-col gap-4">
+
+  {/* Payment Tabs */}
+  <div className="bg-white rounded-xl p-1 border flex">
+    <button
+      onClick={() => setPaymentOption("full")}
+      className={`flex-1 py-2 rounded-lg text-sm font-medium transition ${
+        paymentOption === "full"
+          ? "bg-emerald-700 text-white"
+          : "text-gray-600"
+      }`}
+    >
+      Full Cash
+    </button>
+
+    <button
+      onClick={() => setPaymentOption("payLite")}
+      className={`flex-1 py-2 rounded-lg text-sm font-medium transition ${
+        paymentOption === "payLite"
+          ? "bg-emerald-700 text-white"
+          : "text-gray-600"
+      }`}
+    >
+      Pay Lite
+    </button>
+
+    <button
+      onClick={() => setPaymentOption("allIn")}
+      className={`flex-1 py-2 rounded-lg text-sm font-medium transition ${
+        paymentOption === "allIn"
+          ? "bg-emerald-700 text-white"
+          : "text-gray-600"
+      }`}
+    >
+      All-In
+    </button>
+  </div>
+
+  {/* Subtotal */}
+  <div>
+    <p className="text-sm text-black font-bold">Subtotal</p>
+    <p className="text-3xl font-bold text-emerald-700">
+      ₱{formatPeso(total)}
+    </p>
+  </div>
+
+  {/* Dynamic Payment Info */}
+  <div className="bg-white p-4 rounded-xl border">
+
+    {paymentOption === "full" && (
+      <div>
+        <p className="text-sm text-gray-500 mb-1">
+          Full Cash Payment
+        </p>
+
+        <h3 className="text-xl font-bold text-emerald-700">
+          ₱
+          {discountedTotal.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+          })}
+        </h3>
+
+        <p className="text-sm text-emerald-700 mt-2">
+          Includes 5% cash discount
+        </p>
+      </div>
+    )}
+
+    {paymentOption === "payLite" && (
+      <div>
+        <p className="text-sm text-gray-500 mb-1">
+          Installment Plan
+        </p>
+
+        <h3 className="text-xl font-bold text-emerald-700">
+          ₱
+          {payable.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+          })}
+        </h3>
+
+        <p className="mt-2 text-sm text-gray-600">
+          {installments} Installments
+        </p>
+
+        <p className="font-semibold text-emerald-700">
+          ₱
+          {installmentAmount?.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+          })}
+          / installment
+        </p>
+      </div>
+    )}
+
+    {paymentOption === "allIn" && (
+      <div>
+        <p className="text-sm text-gray-500 mb-1">
+          Complete Enrollment Package
+        </p>
+
+        <h3 className="text-xl font-bold text-emerald-700">
+          ₱
+          {payable.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+          })}
+        </h3>
+
+        <p className="mt-2 text-sm text-gray-600">
+          Includes Registration & Starter Kit
+        </p>
+
+        <p className="font-semibold text-orange-600">
+          + ₱{formatPeso(ALL_IN_SURCHARGE)}
+        </p>
+      </div>
+    )}
+  </div>
+
+  {/* Buttons */}
+  <div className="flex gap-2 mt-2">
+    <Link
+      to="/Enrollment"
+      className="flex-1 inline-flex items-center justify-center rounded-lg bg-emerald-700 text-white py-2 font-semibold hover:bg-emerald-800 transition"
+    >
+      Apply Now
+    </Link>
+
+    <button className="flex-1 inline-flex items-center justify-center rounded-lg border border-emerald-700 text-emerald-700 py-2 font-semibold bg-white hover:bg-emerald-50 transition">
+      Contact Us
+    </button>
+  </div>
+
+  <p className="text-xs text-black">
+    Have questions? Contact our admissions office for assistance.
+  </p>
+
+</aside>
         </div>
       </div>
     </section>

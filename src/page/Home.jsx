@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, GraduationCap, Users, BadgeInfoIcon, GoalIcon, Goal, Eye  } from "lucide-react";
+import { motion } from "framer-motion";
+
 function Home() {
 
   const programData = [
@@ -34,7 +36,7 @@ function Home() {
       {/* HERO */}
     <section className="relative overflow-hidden bg-linear-to-r from-black via-black to-black text-white ">
 
-  <img
+  <img  
     src="/uu2.jpg"
     alt=""
     className="absolute h-100% w-full object-cover[100%] opacity-45 blur-xs"
@@ -93,6 +95,7 @@ function Home() {
     </div>
   </div>
 </section>
+</div>
 
       {/* 3 CARDS 
       <section className="mx-auto w-full px-4 py-14 sm:px-6 lg:px-8">
@@ -143,6 +146,12 @@ function Home() {
 </section> */}
 
         {/* Academic Programs */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6 }}
+          viewport={{ once: true }} >
+
         <section id="Academic" className="py-12 px-6 bg-linear-to-b from-slate-100 bg-cgaDark/10 mt-10 cursor-default">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800">
@@ -186,6 +195,14 @@ function Home() {
         </div>
       </div>
     </section>
+  </motion.div>
+
+
+    <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.6 }}
+          viewport={{ once: true }} >
 
     <section className="mx-auto w-full px-4 py-14 sm:px-6 lg:px-8">
   <BadgeInfoIcon size={75} className="inline-block mr-2" />
@@ -332,9 +349,15 @@ function Home() {
     </div>
     </div>
 </section>
-
+</motion.div>
 
       {/* PARENT INFORMATION */}
+      <motion.div
+          initial={{ opacity: 0, t: 100 }}
+          whileInView={{ opacity: 1, t: 0 }}
+          transition={{ duration: 1.6 }}
+          viewport={{ once: true }} >
+
         <section className="overflow-hidden bg-amber-200 bg-linear-to-b from-slate-50 to-cgaLightGreen/20 py-16">
       <div className="mx-auto ml-20 mr-20 px-4 sm:px-6 lg:px-8">
         <div className="mb-5 text-center max-w-3xl mx-auto">
@@ -405,6 +428,7 @@ function Home() {
         </div>
       </div>
     </section>
+  </motion.div>
 
       {/* CONTACT 
       <section id="contact" className="bg-cgaGreen text-white">
@@ -478,7 +502,6 @@ function Home() {
         </div>
       </div>
     </section> */}
-  </div>
   </>
   );
 }
